@@ -24,6 +24,31 @@ class CodeAnalyzer:
             'characters': len(code),
             'empty_lines': sum(1 for line in lines if not line.strip())
         }
+    
+    def detect_security_patterns(self, code):
+        issues = []
+        lines = code.split('\n')
+        
+        patterns = {
+            'SQL Injection Risk': ['execute(', 'executemany(', 'cursor.execute'],
+            'Command Injection': ['os.system(', 'subprocess.call(', 'eval('],
+            'Hard-coded Secrets': ['password =', 'api_key =', 'secret =', 'token ='],
+            'Unsafe Deserialization': ['pickle.loads(', 'yaml.load('],
+            'Path Traversal': ['open(', 'file(']
+        }
+        
+        for line_num, line in enumerate(lines, 1):
+            for issue_type, keywords in patterns.items():
+                for keyword in keywords:
+                    if keyword in line.lower():
+                        issues.append({
+                            'type': issue_type,
+                            'line': line_num,
+                            'code': line.strip(),
+                            'severity': 'HIGH'
+                        })
+        
+        return issues
 
 if __name__ == "__main__":
     analyzer = CodeAnalyzer()
@@ -36,5 +61,11 @@ if __name__ == "__main__":
         print(f"Lines: {info['lines']}")
         print(f"Characters: {info['characters']}")
         print(f"Empty lines: {info['empty_lines']}")
+        
+        code = analyzer.read_file(test_file)
+        issues = analyzer.detect_security_patterns(code)
+        print(f"\nSecurity Issues Found: {len(issues)}")
+        for issue in issues:
+            print(f"[{issue['severity']}] Line {issue['line']}: {issue['type']}")
     except Exception as e:
         print(f"Error: {e}")
