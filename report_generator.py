@@ -1,4 +1,5 @@
 from datetime import datetime
+from scoring import SecurityScorer
 
 class ReportGenerator:
     def generate_text_report(self, analysis_result):
@@ -22,6 +23,14 @@ class ReportGenerator:
                 report.append(f"  Line {issue['line']}: {issue['code']}")
         else:
             report.append("  No issues detected")
+        
+        scorer = SecurityScorer()
+        score, grade = scorer.calculate_score(patterns)
+        risk = scorer.get_risk_level(score)
+        
+        report.append(f"\n[SECURITY SCORE]")
+        report.append(f"Score: {score}/100 (Grade: {grade})")
+        report.append(f"Risk Level: {risk}")
         
         if analysis_result['ai_review']:
             report.append("\n[AI ANALYSIS]")
