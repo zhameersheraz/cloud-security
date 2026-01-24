@@ -1,0 +1,17 @@
+analysis:
+  check_sql_injection: true
+  check_command_injection: true
+  check_secrets: true
+  check_deserialization: true
+  check_path_traversal: true
+
+scoring:
+  passing_score: 70
+  
+ai:
+  model: claude-sonnet-4-20250514
+  max_tokens: 2000
+  
+output:
+  format: text
+  include_examples: true
