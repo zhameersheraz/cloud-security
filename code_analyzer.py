@@ -51,46 +51,45 @@ class CodeAnalyzer:
         return issues
     
     def full_analysis(self, filepath, use_ai=False, api_key=None):
-        code = self.read_file(filepath)
-        info = self.get_file_info(filepath)
-        patterns = self.detect_security_patterns(code)
-        
-        result = {
-            'file_info': info,
-            'pattern_issues': patterns,
-            'ai_review': None
-        }
-        
-        if use_ai:
-            from ai_reviewer import AIReviewer
-            reviewer = AIReviewer(api_key)
-            result['ai_review'] = reviewer.review_code(code, filepath)
-        
-        return result
-
+        try:
+            code = self.read_file(filepath)
+            info = self.get_file_info(filepath)
+            patterns = self.detect_security_patterns(code)
+            
+            result = {
+                'file_info': info,
+                'pattern_issues': patterns,
+                'ai_review': None
+            }
+            
+            if use_ai:
+                try:
+                    from ai_reviewer import AIReviewer
+                    reviewer = AIReviewer(api_key)
+                    result['ai_review'] = reviewer.review_code(code, filepath)
+                except Exception as e:
+                    result['ai_review'] = f"AI analysis failed: {str(e)}"
+            
+            return result
+        except Exception as e:
+            raise Exception(f"Analysis failed for {filepath}: {str(e)}")
 
 if __name__ == "__main__":
     analyzer = CodeAnalyzer()
     
     test_file = input("Enter Python file path: ")
     try:
-        analysis = analyzer.full_analysis(test_file)
-        info = analysis['file_info']
-        issues = analysis['pattern_issues']
-
+        info = analyzer.get_file_info(test_file)
         print("\nFile Analysis:")
         print(f"Path: {info['filepath']}")
         print(f"Lines: {info['lines']}")
         print(f"Characters: {info['characters']}")
         print(f"Empty lines: {info['empty_lines']}")
         
+        code = analyzer.read_file(test_file)
+        issues = analyzer.detect_security_patterns(code)
         print(f"\nSecurity Issues Found: {len(issues)}")
         for issue in issues:
             print(f"[{issue['severity']}] Line {issue['line']}: {issue['type']}")
-
-        if analysis['ai_review']:
-            print("\nAI Review:")
-            print(analysis['ai_review'])
-            
     except Exception as e:
         print(f"Error: {e}")
