@@ -37,7 +37,6 @@ document.querySelectorAll('.cloud-card, h2, .note').forEach(el => {
 // small footer detail: year in copyright
 const yr = document.getElementById('year');
 if (yr) yr.textContent = new Date().getFullYear();
-
 // mark current page in nav
 const here = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/, '');
 document.querySelectorAll('.nav a').forEach(a => {
