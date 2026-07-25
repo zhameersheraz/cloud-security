@@ -3,7 +3,7 @@
 A static cloud security cheatsheet covering AWS, Azure, and GCP. Built
 as a learning resource for offensive and defensive cloud testing.
 
-Live at: [zhameersheraz.github.io/cloud-security](https://zhameersheraz.github.io/cloud-security/)
+Live at: [zhameersheraz-cloud-security.vercel.app](https://zhameersheraz-cloud-security.vercel.app/)
 
 ## Pages
 
