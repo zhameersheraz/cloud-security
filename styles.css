@@ -309,10 +309,13 @@ footer a { color: var(--ink); border-bottom: 1px solid var(--ink); }
   h2 { font-size: 24px; }
   main { padding: 32px 20px; }
 }
-
-
-.nav a.active {
-  color: var(--accent);
-  border-bottom: 1.5px solid var(--accent);
-  padding-bottom: 4px;
+/* active nav link - matches regardless of how .nav is nested */
+.nav a.active,
+nav a.active,
+.nav-list a.active,
+header a.active {
+  color: #8b1a1a !important;
+  border-bottom: 2px solid #8b1a1a !important;
+  padding-bottom: 4px !important;
+  display: inline-block;
 }
