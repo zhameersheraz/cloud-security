@@ -39,7 +39,8 @@ const yr = document.getElementById('year');
 if (yr) yr.textContent = new Date().getFullYear();
 
 // mark current page in nav
-const here = location.pathname.split('/').pop() || 'index.html';
+const here = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/, '');
 document.querySelectorAll('.nav a').forEach(a => {
-  if (a.getAttribute('href') === here) a.classList.add('active');
+  const target = (a.getAttribute('href') || '').replace(/\.html$/, '');
+  if (target === here) a.classList.add('active');
 });
