@@ -22,11 +22,11 @@
 </header>
 <main>
   <svg width="40" height="40" viewBox="0 0 40 40"><path d="M10 28 L20 8 L30 28 Z" fill="#4285f4"/><path d="M30 28 L36 20 L40 28 Z" fill="#ea4335"/><path d="M10 28 L20 28 L14 18 Z" fill="#34a853"/></svg>
-<h2>GCP &mdash; common misconfigurations</h2>
+<h2>GCP - common misconfigurations</h2>
   <table>
     <tr><th>Misconfiguration</th><th>Risk</th><th>What to look for</th></tr>
     <tr><td>Public GCS buckets</td><td>high</td><td>Bucket IAM allows <code>allUsers</code> or <code>allAuthenticatedUsers</code></td></tr>
-    <tr><td>Service account keys (user-managed)</td><td>high</td><td>JSON keys created &mdash; prefer workload identity instead</td></tr>
+    <tr><td>Service account keys (user-managed)</td><td>high</td><td>JSON keys created - prefer workload identity instead</td></tr>
     <tr><td>Broad IAM bindings</td><td>high</td><td><code>roles/owner</code>, <code>roles/editor</code> on org/folder/project</td></tr>
     <tr><td>Public Cloud Functions / Cloud Run</td><td>medium</td><td><code>--allow-unauthenticated</code> flag set on deploy</td></tr>
     <tr><td>Default service account used by compute</td><td>medium</td><td>GCE instances using the default SA have project-wide Editor</td></tr>
