@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>cloud-security — cheatsheet</title>
+  <meta name="description" content="A practical cheatsheet for cloud security on AWS, Azure, and GCP: common misconfigurations, common tools, and useful commands.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a class="logo" href="index.html">cloud<span>/security</span></a>
+    <button class="menu-toggle" aria-label="menu">&#9776;</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aws.html">AWS</a></li>
+      <li><a href="azure.html">Azure</a></li>
+      <li><a href="gcp.html">GCP</a></li>
+      <li><a href="tools.html">Tools</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h1>cloud security cheatsheet</h1>
+    <p>Practical misconfigurations, common tools, and useful commands for AWS, Azure, and GCP security testing.</p>
+    <a class="cta" href="aws.html">start with AWS &rarr;</a>
+  </section>
+
+  <h2>Pick a cloud</h2>
+  <div class="cloud-grid">
+    <a class="cloud-card" href="aws.html">
+      <h3>AWS</h3>
+      <p>IAM misconfigs, S3 exposures, security groups, CloudTrail gaps.</p>
+    </a>
+    <a class="cloud-card" href="azure.html">
+      <h3>Azure</h3>
+      <p>AD misconfigs, storage account access, NSG rules, Key Vault.</p>
+    </a>
+    <a class="cloud-card" href="gcp.html">
+      <h3>GCP</h3>
+      <p>GCS bucket perms, service account keys, IAM bindings.</p>
+    </a>
+  </div>
+
+  <h2>How to use this</h2>
+  <p>Each page is a quick reference for one cloud provider. Sections:</p>
+  <ul>
+    <li><b>Common misconfigurations</b> — what to look for in audits or bug bounty recon.</li>
+    <li><b>Common tools</b> — open-source scanners and offensive frameworks.</li>
+    <li><b>Useful commands</b> — copy-paste-ready CLI snippets.</li>
+  </ul>
+  <p>This is a learning resource, not a replacement for paid CSPM tools or hands-on labs. Always validate findings manually before acting on them.</p>
+</main>
+<footer>
+  built by <a href="https://github.com/zhameersheraz">zhameersheraz</a> &middot;
+  <a href="https://github.com/zhameersheraz/cloud-security">source on github</a>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

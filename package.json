@@ -1,0 +1,9 @@
+{
+  "name": "cloud-security",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static cloud security cheatsheet deployed on Vercel",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}

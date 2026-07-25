@@ -1,122 +1,69 @@
-# CodeGuard AI - Intelligent Code Security Analyzer
+# cloud-security
 
-An AI-powered tool for analyzing Python code security vulnerabilities and code quality issues.
+A static cloud security cheatsheet covering AWS, Azure, and GCP. Built
+as a learning resource for offensive and defensive cloud testing.
 
-## Features
+Live at: [zhameersheraz.github.io/cloud-security](https://zhameersheraz.github.io/cloud-security/)
 
-- **Pattern-Based Detection** - Identifies common security vulnerabilities
-- **AI-Powered Analysis** - Uses advanced AI for intelligent code review
-- **Security Scoring** - Grades code security from A+ to F
-- **Detailed Reports** - Generates comprehensive analysis reports
-- **Batch Processing** - Analyze entire directories
-- **CLI Interface** - Easy command-line usage
+## Pages
 
-## Installation
+| Page         | Topic                                          |
+| ------------ | ---------------------------------------------- |
+| `index.html` | Landing                                        |
+| `aws.html`   | AWS misconfigurations, tools, useful commands  |
+| `azure.html` | Azure misconfigurations, tools, useful commands|
+| `gcp.html`   | GCP misconfigurations, tools, useful commands  |
+| `tools.html` | Curated cloud security tool directory          |
+
+## Run locally
+
+Any static file server works. The simplest:
+
 ```bash
-pip install anthropic pyyaml
+python3 -m http.server 8000
 ```
 
-Set your API key:
+Then open `http://localhost:8000`.
+
+Or with Node:
+
 ```bash
-export ANTHROPIC_API_KEY="your-key-here"
+npx serve .
 ```
 
-## Usage
+## Deployment
 
-### Basic Analysis
-```bash
-python main.py mycode.py
+This site is static, so it deploys anywhere. Two easy options:
+
+- **GitHub Pages** &mdash; repo Settings &rarr; Pages &rarr; Source: `main` / root
+- **Vercel** &mdash; import the GitHub repo at vercel.com, no config needed
+
+Every push to `main` redeploys.
+
+## Source structure
+
+```
+cloud-security/
+├── index.html      # landing
+├── aws.html        # AWS cheatsheet
+├── azure.html      # Azure cheatsheet
+├── gcp.html        # GCP cheatsheet
+├── tools.html      # tool directory
+├── styles.css      # shared theme
+├── script.js       # mobile menu + copy-to-clipboard
+├── package.json    # for Vercel
+└── vercel.json     # Vercel config
 ```
 
-### With AI Review
-```bash
-python main.py mycode.py --ai
-```
+## How to contribute
 
-### Save Report
-```bash
-python main.py mycode.py --ai --output report.txt
-```
-
-### Analyze Directory
-```bash
-python main.py /path/to/project --dir --ai
-```
-
-## Security Checks
-
-- SQL Injection
-- Command Injection
-- Hard-coded Secrets
-- Unsafe Deserialization
-- Path Traversal
-- Code Quality Issues
-
-## Scoring System
-
-- **A+ (90-100)**: Excellent security
-- **A (80-89)**: Good security
-- **B (70-79)**: Acceptable
-- **C (60-69)**: Needs improvement
-- **D (50-59)**: Poor security
-- **F (<50)**: Critical issues
-
-## Example Report
-```
-============================================================
-CodeGuard AI - Security Analysis Report
-Generated: 2026-01-29 10:30:00
-============================================================
-
-File: example.py
-Lines of Code: 45
-Characters: 1234
-
-[PATTERN DETECTION] Found 2 potential issues:
-
-  [HIGH] SQL Injection Risk
-  Line 23: cursor.execute(f"SELECT * FROM users WHERE id={user_id}")
-
-  [HIGH] Hard-coded Secrets
-  Line 5: API_KEY = "sk-1234567890"
-
-[SECURITY SCORE]
-Score: 86/100 (Grade: A)
-Risk Level: LOW
-
-[AI ANALYSIS]
-The code contains several areas for improvement...
-
-============================================================
-```
+Found a misconfiguration that's missing? Edit the relevant HTML file
+and open a PR. No build step, no framework &mdash; just edit and refresh.
 
 ## Author
 
-**Zhameer Sheraz Tampugao**
-Computer Science Student | Security Researcher in Training
-
-Built in 2026 demonstrating:
-- AI API integration
-- Security analysis
-- Python development
-- Software engineering best practices
-
-## Technologies
-
-- Python 3.8+
-- AI API (Anthropic)
-- PyYAML (configuration)
+Zhameer Sheraz Tampugao &mdash; [github.com/zhameersheraz](https://github.com/zhameersheraz)
 
 ## License
 
-MIT License - Educational purposes
-
----
-
-**Note:** This tool is for educational purposes. Always manually review security findings.
-```
-
-Create NEW file: `requirements.txt`
-```
-anthropic>=0.18.0
-pyyaml>=6.0
+MIT &mdash; see [LICENSE](LICENSE).
