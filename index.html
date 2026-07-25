@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>cloud-security — cheatsheet</title>
-  <meta name="description" content="A practical cheatsheet for cloud security on AWS, Azure, and GCP: common misconfigurations, common tools, and useful commands.">
+  <meta name="description" content="A practical cheatsheet for cloud security on AWS, Azure, and GCP: common misconfigurations, tools, and useful commands.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,38 +23,56 @@
 </header>
 <main>
   <section class="hero">
-    <h1>cloud security cheatsheet</h1>
-    <p>Practical misconfigurations, common tools, and useful commands for AWS, Azure, and GCP security testing.</p>
-    <a class="cta" href="aws.html">start with AWS &rarr;</a>
+    <h1>a field guide to <em>cloud security</em></h1>
+    <p>Misconfigurations, tools, and useful commands for AWS, Azure, and GCP &mdash; the things I keep looking up while learning.</p>
+    <a class="cta" href="aws.html">start with AWS</a>
   </section>
 
   <h2>Pick a cloud</h2>
   <div class="cloud-grid">
     <a class="cloud-card" href="aws.html">
+      <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="22" font-family="Verdana" font-weight="bold" font-size="18" fill="#ff9900">aws</text>
+        <path d="M 8 28 Q 20 38 32 28" stroke="#ff9900" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
       <h3>AWS</h3>
       <p>IAM misconfigs, S3 exposures, security groups, CloudTrail gaps.</p>
     </a>
     <a class="cloud-card" href="azure.html">
+      <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,4 36,30 26,30 20,18 14,30 4,30" fill="#0078d4"/>
+        <polygon points="20,18 14,30 20,30" fill="#50e6ff" opacity="0.8"/>
+      </svg>
       <h3>Azure</h3>
       <p>AD misconfigs, storage account access, NSG rules, Key Vault.</p>
     </a>
     <a class="cloud-card" href="gcp.html">
+      <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 28 L20 8 L30 28 Z" fill="#4285f4"/>
+        <path d="M30 28 L36 20 L40 28 Z" fill="#ea4335"/>
+        <path d="M30 28 L20 28 L26 18 Z" fill="#fbbc04"/>
+        <path d="M10 28 L20 28 L14 18 Z" fill="#34a853"/>
+      </svg>
       <h3>GCP</h3>
       <p>GCS bucket perms, service account keys, IAM bindings.</p>
     </a>
   </div>
 
+  <div class="note">
+    I built this because I was tired of opening 5 tabs every time I needed the right <code>az</code> or <code>gcloud</code> command. The cheatsheets here are the ones I actually use &mdash; not exhaustive, just the things that come up in labs and CTFs. Last updated when I notice a new misconfig that I keep hitting.
+  </div>
+
   <h2>How to use this</h2>
-  <p>Each page is a quick reference for one cloud provider. Sections:</p>
+  <p>Each page is a quick reference for one cloud provider. Three sections per page:</p>
   <ul>
-    <li><b>Common misconfigurations</b> — what to look for in audits or bug bounty recon.</li>
-    <li><b>Common tools</b> — open-source scanners and offensive frameworks.</li>
-    <li><b>Useful commands</b> — copy-paste-ready CLI snippets.</li>
+    <li><b>Common misconfigurations</b> &mdash; what to look for in audits or bug bounty recon.</li>
+    <li><b>Common tools</b> &mdash; open-source scanners and offensive frameworks.</li>
+    <li><b>Useful commands</b> &mdash; copy-paste-ready CLI snippets.</li>
   </ul>
   <p>This is a learning resource, not a replacement for paid CSPM tools or hands-on labs. Always validate findings manually before acting on them.</p>
 </main>
 <footer>
-  built by <a href="https://github.com/zhameersheraz">zhameersheraz</a> &middot;
+  built by <a href="https://github.com/zhameersheraz">zhameersheraz</a> &middot; last touched <span id="year">2026</span> &middot;
   <a href="https://github.com/zhameersheraz/cloud-security">source on github</a>
 </footer>
 <script src="script.js"></script>
